@@ -1,5 +1,396 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+   section.header-main
+      .container
+        .row.align-items-center
+          .col-lg-3
+            .brand-wrap
+              img.logo(src='assets/images/logos/squanchy.jpg')
+              h2.logo-text Squanchy POS
+            // brand-wrap.//
+          .col-lg-6.col-sm-6
+            form.search-wrap(action='#')
+              .input-group
+                input.form-control(type='text', placeholder='Search')
+                .input-group-append
+                  button.btn.btn-primary(type='submit')
+                    i.fa.fa-search
+            // search-wrap .end//
+            // col.//
+            .col-lg-3.col-sm-6
+              .widgets-wrap.d-flex.justify-content-end
+                .widget-header
+                  a.icontext(href='#')
+                  a.btn.btn-primary.m-btn.m-btn--icon.m-btn--icon-only(href='#')
+                    i.fa.fa-home
+                // widget .//
+                .widget-header.dropdown
+                  a.ml-3.icontext(href='#', data-toggle='dropdown', data-offset='20,10')
+                    img.avatar(src='assets/images/avatars/bshbsh.png', alt='')
+                  .dropdown-menu.dropdown-menu-right
+                    a.dropdown-item(href='#')
+                      i.fa.fa-sign-out-alt
+                      |  Logout
+                  // dropdown-menu .//
+                  // widget  dropdown.//
+                  // widgets-wrap.//
+                  // col.//
+                  // row.//
+                  // container.//
+                  // ========================= SECTION CONTENT =========================
+                  section.section-content.padding-y-sm.bg-default
+                    .container-fluid
+                      .row
+                        .col-md-8.card.padding-y-sm.card
+                          ul.nav.bg.radius.nav-pills.nav-fill.mb-3.bg(role='tablist')
+                            li.nav-item
+                              a.nav-link.active.show(data-toggle='pill', href='#nav-tab-card')
+                                i.fa.fa-tags
+                                |  All
+                            li.nav-item
+                              a.nav-link(data-toggle='pill', href='#nav-tab-paypal')
+                                i.fa.fa-tags
+                                |   Category 1
+                            li.nav-item
+                              a.nav-link(data-toggle='pill', href='#nav-tab-bank')
+                                i.fa.fa-tags
+                                |   Category 2
+                            li.nav-item
+                              a.nav-link(data-toggle='pill', href='#nav-tab-bank')
+                                i.fa.fa-tags
+                                |   Category 3
+                            li.nav-item
+                              a.nav-link(data-toggle='pill', href='#nav-tab-bank')
+                                i.fa.fa-tags
+                                |   Category 4
+                            li.nav-item
+                              a.nav-link(data-toggle='pill', href='#nav-tab-bank')
+                                i.fa.fa-tags
+                                |   Category 5
+                          span#items
+                            .row
+                              .col-md-3
+                                figure.card.card-product
+                                  span.badge-new  NEW 
+                                  .img-wrap
+                                    img(src='assets/images/items/3.jpg')
+                                    a.btn-overlay(href='#')
+                                      i.fa.fa-search-plus
+                                      |  Quick view
+                                  figcaption.info-wrap
+                                    a.title(href='#') Good item name
+                                    .action-wrap
+                                      a.btn.btn-primary.btn-sm.float-right(href='#')
+                                        i.fa.fa-cart-plus
+                                        |  Add
+                                      .price-wrap.h5
+                                        span.price-new $1280
+                                      // price-wrap.//
+                                      // action-wrap
+                                      // card //
+                                      // col //
+                                      .col-md-3
+                                        figure.card.card-product
+                                          span.badge-new  NEW 
+                                          .img-wrap
+                                            img(src='assets/images/items/4.jpg')
+                                            a.btn-overlay(href='#')
+                                              i.fa.fa-search-plus
+                                              |  Quick view
+                                          figcaption.info-wrap
+                                            a.title(href='#') The name of product
+                                            .action-wrap
+                                              a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                i.fa.fa-cart-plus
+                                                |  Add
+                                              .price-wrap.h5
+                                                span.price-new $280
+                                              // price-wrap.//
+                                              // action-wrap
+                                              // card //
+                                              // col //
+                                              .col-md-3
+                                                figure.card.card-product
+                                                  span.badge-new  NEW 
+                                                  .img-wrap
+                                                    img(src='assets/images/items/5.jpg')
+                                                    a.btn-overlay(href='#')
+                                                      i.fa.fa-search-plus
+                                                      |  Quick view
+                                                  figcaption.info-wrap
+                                                    a.title(href='#') Name of product
+                                                    .action-wrap
+                                                      a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                        i.fa.fa-cart-plus
+                                                        |  Add
+                                                      .price-wrap.h5
+                                                        span.price-new $280
+                                                        del.price-old $1980
+                                                      // price-wrap.//
+                                                      // action-wrap
+                                                      // card //
+                                                      // col //
+                                                      .col-md-3
+                                                        figure.card.card-product
+                                                          span.badge-new  NEW 
+                                                          .img-wrap
+                                                            img(src='assets/images/items/6.jpg')
+                                                            a.btn-overlay(href='#')
+                                                              i.fa.fa-search-plus
+                                                              |  Quick view
+                                                          figcaption.info-wrap
+                                                            a.title(href='#') The name of product
+                                                            .action-wrap
+                                                              a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                                i.fa.fa-cart-plus
+                                                                |  Add
+                                                              .price-wrap.h5
+                                                                span.price-new $280
+                                                              // price-wrap.//
+                                                              // action-wrap
+                                                              // card //
+                                                              // col //
+                                                              // row.//
+                                                              .row
+                                                                .col-md-3
+                                                                  figure.card.card-product
+                                                                    span.badge-new  NEW 
+                                                                    .img-wrap
+                                                                      img(src='assets/images/items/1.jpg')
+                                                                      a.btn-overlay(href='#')
+                                                                        i.fa.fa-search-plus
+                                                                        |  Quick view
+                                                                    figcaption.info-wrap
+                                                                      a.title(href='#') Good item name
+                                                                      .action-wrap
+                                                                        a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                                          i.fa.fa-cart-plus
+                                                                          |  Add
+                                                                        .price-wrap.h5
+                                                                          span.price-new $1280
+                                                                        // price-wrap.//
+                                                                        // action-wrap
+                                                                        // card //
+                                                                        // col //
+                                                                        .col-md-3
+                                                                          figure.card.card-product
+                                                                            span.badge-new  NEW 
+                                                                            .img-wrap
+                                                                              img(src='assets/images/items/2.jpg')
+                                                                              a.btn-overlay(href='#')
+                                                                                i.fa.fa-search-plus
+                                                                                |  Quick view
+                                                                            figcaption.info-wrap
+                                                                              a.title(href='#') The name of product
+                                                                              .action-wrap
+                                                                                a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                                                  i.fa.fa-cart-plus
+                                                                                  |  Add
+                                                                                .price-wrap.h5
+                                                                                  span.price-new $280
+                                                                                // price-wrap.//
+                                                                                // action-wrap
+                                                                                // card //
+                                                                                // col //
+                                                                                .col-md-3
+                                                                                  figure.card.card-product
+                                                                                    span.badge-new  NEW 
+                                                                                    .img-wrap
+                                                                                      img(src='assets/images/items/7.jpg')
+                                                                                      a.btn-overlay(href='#')
+                                                                                        i.fa.fa-search-plus
+                                                                                        |  Quick view
+                                                                                    figcaption.info-wrap
+                                                                                      a.title(href='#') Name of product
+                                                                                      .action-wrap
+                                                                                        a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                                                          i.fa.fa-cart-plus
+                                                                                          |  Add
+                                                                                        .price-wrap.h5
+                                                                                          span.price-new $280
+                                                                                          del.price-old $1980
+                                                                                        // price-wrap.//
+                                                                                        // action-wrap
+                                                                                        // card //
+                                                                                        // col //
+                                                                                        .col-md-3
+                                                                                          figure.card.card-product
+                                                                                            span.badge-new  NEW 
+                                                                                            .img-wrap
+                                                                                              img(src='assets/images/items/comp.png')
+                                                                                              a.btn-overlay(href='#')
+                                                                                                i.fa.fa-search-plus
+                                                                                                |  Quick view
+                                                                                            figcaption.info-wrap
+                                                                                              a.title(href='#') The name of product
+                                                                                              .action-wrap
+                                                                                                a.btn.btn-primary.btn-sm.float-right(href='#')
+                                                                                                  i.fa.fa-cart-plus
+                                                                                                  |  Add
+                                                                                                .price-wrap.h5
+                                                                                                  span.price-new $280
+                                                                                                // price-wrap.//
+                                                                                                // action-wrap
+                                                                                                // card //
+                                                                                                // col //
+                                                                                                // row.//
+                        .col-md-4
+                          .card
+                            span#cart
+                              table.table.table-hover.shopping-cart-wrap
+                                thead.text-muted
+                                  tr
+                                    th(scope='col') Item
+                                    th(scope='col', width='120') Qty
+                                    th(scope='col', width='120') Price
+                                    th.text-right(scope='col', width='200') Delete
+                                tbody
+                                  tr
+                                    td
+                                      figure.media
+                                        .img-wrap
+                                          img.img-thumbnail.img-xs(src='assets/images/items/1.jpg')
+                                        figcaption.media-body
+                                          h6.title.text-truncate Product name 
+                                    td.text-center
+                                      .m-btn-group.m-btn-group--pill.btn-group.mr-2(role='group', aria-label='...')
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-minus
+                                        button.m-btn.btn.btn-default(type='button', disabled='') 3
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-plus
+                                    td
+                                      .price-wrap
+                                        var.price $145
+                                      // price-wrap .//
+                                    td.text-right
+                                      a.btn.btn-outline-danger(href='')
+                                        i.fa.fa-trash
+                                  tr
+                                    td
+                                      figure.media
+                                        .img-wrap
+                                          img.img-thumbnail.img-xs(src='assets/images/items/5.jpg')
+                                        figcaption.media-body
+                                          h6.title.text-truncate Product name  
+                                    td.text-center
+                                      .m-btn-group.m-btn-group--pill.btn-group.mr-2(role='group', aria-label='...')
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-minus
+                                        button.m-btn.btn.btn-default(type='button', disabled='') 1
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-plus
+                                    td
+                                      .price-wrap
+                                        var.price $35
+                                      // price-wrap .//
+                                    td.text-right
+                                      a.btn.btn-outline-danger.btn-round(href='')
+                                        i.fa.fa-trash
+                                  tr
+                                    td
+                                      figure.media
+                                        .img-wrap
+                                          img.img-thumbnail.img-xs(src='assets/images/items/4.jpg')
+                                        figcaption.media-body
+                                          h6.title.text-truncate Product name  
+                                    td.text-center
+                                      .m-btn-group.m-btn-group--pill.btn-group.mr-2(role='group', aria-label='...')
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-minus
+                                        button.m-btn.btn.btn-default(type='button', disabled='') 5
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-plus
+                                    td
+                                      .price-wrap
+                                        var.price $45
+                                      // price-wrap .//
+                                    td.text-right
+                                      a.btn.btn-outline-danger.btn-round(href='')
+                                        i.fa.fa-trash
+                                  tr
+                                    td
+                                      figure.media
+                                        .img-wrap
+                                          img.img-thumbnail.img-xs(src='assets/images/items/2.jpg')
+                                        figcaption.media-body
+                                          h6.title.text-truncate Product name  
+                                    td.text-center
+                                      .m-btn-group.m-btn-group--pill.btn-group.mr-2(role='group', aria-label='...')
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-minus
+                                        button.m-btn.btn.btn-default(type='button', disabled='') 2
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-plus
+                                    td
+                                      .price-wrap
+                                        var.price $45
+                                      // price-wrap .//
+                                    td.text-right
+                                      a.btn.btn-outline-danger.btn-round(href='')
+                                        i.fa.fa-trash
+                                  tr
+                                    td
+                                      figure.media
+                                        .img-wrap
+                                          img.img-thumbnail.img-xs(src='assets/images/items/3.jpg')
+                                        figcaption.media-body
+                                          h6.title.text-truncate Product name  
+                                    td.text-center
+                                      .m-btn-group.m-btn-group--pill.btn-group.mr-2(role='group', aria-label='...')
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-minus
+                                        button.m-btn.btn.btn-default(type='button', disabled='') 1
+                                        button.m-btn.btn.btn-default(type='button')
+                                          i.fa.fa-plus
+                                    td
+                                      .price-wrap
+                                        var.price $45
+                                      // price-wrap .//
+                                    td.text-right
+                                      a.btn.btn-outline-danger.btn-round(href='')
+                                        i.fa.fa-trash
+                          // card.//
+                          .box
+                            dl.dlist-align
+                              dt Tax: 
+                              dd.text-right 12%
+                            dl.dlist-align
+                              dt Discount:
+                              dd.text-right
+                                a(href='#') 0%
+                            dl.dlist-align
+                              dt Sub Total:
+                              dd.text-right $215
+                            dl.dlist-align
+                              dt Total: 
+                              dd.text-right.h4.b  $215 
+                            .row
+                              .col-md-6
+                                a.btn.btn-default.btn-error.btn-lg.btn-block(href='#')
+                                  i.fa.fa-times-circle
+                                  |  Cancel
+                              .col-md-6
+                                a.btn.btn-primary.btn-lg.btn-block(href='#')
+                                  i.fa.fa-shopping-bag
+                                  |  Charge
+                          // box.//
+                          // container //
+                          // ========================= SECTION CONTENT END// =========================
+                          script(src='assets/js/jquery-2.0.0.min.js', type='text/javascript')
+                          script(src='assets/js/bootstrap.bundle.min.js', type='text/javascript')
+                          script(src='assets/js/OverlayScrollbars.js', type='text/javascript')
+                          script.
+                            $(function() {
+                            //The passed argument has to be at least a empty object or a object with your desired options
+                            //$("body").overlayScrollbars({ });
+                            $("#items").height(552);
+                            $("#items").overlayScrollbars({overflowBehavior : {
+                            x : "hidden",
+                            y : "scroll"
+                            } });
+                            $("#cart").height(445);
+                            $("#cart").overlayScrollbars({ });
+                            });
+
