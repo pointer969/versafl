@@ -6,7 +6,7 @@ block content
         .row.align-items-center
           .col-lg-3
             .brand-wrap
-              img.logo(src='images/logos/squanchy.jpg')
+              img.logo(src='/images/logos/squanchy.jpg')
               h2.logo-text Squanchy POS
             // brand-wrap.//
           .col-lg-6.col-sm-6
@@ -27,7 +27,7 @@ block content
                 // widget .//
                 .widget-header.dropdown
                   a.ml-3.icontext(href='#', data-toggle='dropdown', data-offset='20,10')
-                    img.avatar(src='images/avatars/bshbsh.png', alt='')
+                    img.avatar(src='/images/avatars/bshbsh.png', alt='')
                   .dropdown-menu.dropdown-menu-right
                     a.dropdown-item(href='#')
                       i.fa.fa-sign-out-alt
@@ -94,7 +94,7 @@ block content
                                         figure.card.card-product
                                           span.badge-new  NEW 
                                           .img-wrap
-                                            img(src='images/items/4.jpg')
+                                            img(src='/images/items/4.jpg')
                                             a.btn-overlay(href='#')
                                               i.fa.fa-search-plus
                                               |  Quick view
@@ -114,7 +114,7 @@ block content
                                                 figure.card.card-product
                                                   span.badge-new  NEW 
                                                   .img-wrap
-                                                    img(src='images/items/5.jpg')
+                                                    img(src='/images/items/5.jpg')
                                                     a.btn-overlay(href='#')
                                                       i.fa.fa-search-plus
                                                       |  Quick view
@@ -135,7 +135,7 @@ block content
                                                         figure.card.card-product
                                                           span.badge-new  NEW 
                                                           .img-wrap
-                                                            img(src='images/items/6.jpg')
+                                                            img(src='/images/items/6.jpg')
                                                             a.btn-overlay(href='#')
                                                               i.fa.fa-search-plus
                                                               |  Quick view
@@ -157,7 +157,7 @@ block content
                                                                   figure.card.card-product
                                                                     span.badge-new  NEW 
                                                                     .img-wrap
-                                                                      img(src='images/items/1.jpg')
+                                                                      img(src='/images/items/1.jpg')
                                                                       a.btn-overlay(href='#')
                                                                         i.fa.fa-search-plus
                                                                         |  Quick view
@@ -177,7 +177,7 @@ block content
                                                                           figure.card.card-product
                                                                             span.badge-new  NEW 
                                                                             .img-wrap
-                                                                              img(src='images/items/2.jpg')
+                                                                              img(src='/images/items/2.jpg')
                                                                               a.btn-overlay(href='#')
                                                                                 i.fa.fa-search-plus
                                                                                 |  Quick view
@@ -197,7 +197,7 @@ block content
                                                                                   figure.card.card-product
                                                                                     span.badge-new  NEW 
                                                                                     .img-wrap
-                                                                                      img(src='images/items/7.jpg')
+                                                                                      img(src='/images/items/7.jpg')
                                                                                       a.btn-overlay(href='#')
                                                                                         i.fa.fa-search-plus
                                                                                         |  Quick view
@@ -218,7 +218,7 @@ block content
                                                                                           figure.card.card-product
                                                                                             span.badge-new  NEW 
                                                                                             .img-wrap
-                                                                                              img(src='images/items/comp.png')
+                                                                                              img(src='/images/items/comp.png')
                                                                                               a.btn-overlay(href='#')
                                                                                                 i.fa.fa-search-plus
                                                                                                 |  Quick view
@@ -250,7 +250,7 @@ block content
                                     td
                                       figure.media
                                         .img-wrap
-                                          img.img-thumbnail.img-xs(src='images/items/1.jpg')
+                                          img.img-thumbnail.img-xs(src='/images/items/1.jpg')
                                         figcaption.media-body
                                           h6.title.text-truncate Product name 
                                     td.text-center
@@ -271,7 +271,7 @@ block content
                                     td
                                       figure.media
                                         .img-wrap
-                                          img.img-thumbnail.img-xs(src='images/items/5.jpg')
+                                          img.img-thumbnail.img-xs(src='/images/items/5.jpg')
                                         figcaption.media-body
                                           h6.title.text-truncate Product name  
                                     td.text-center
@@ -292,7 +292,7 @@ block content
                                     td
                                       figure.media
                                         .img-wrap
-                                          img.img-thumbnail.img-xs(src='images/items/4.jpg')
+                                          img.img-thumbnail.img-xs(src='/images/items/4.jpg')
                                         figcaption.media-body
                                           h6.title.text-truncate Product name  
                                     td.text-center
@@ -313,7 +313,7 @@ block content
                                     td
                                       figure.media
                                         .img-wrap
-                                          img.img-thumbnail.img-xs(src='images/items/2.jpg')
+                                          img.img-thumbnail.img-xs(src='/images/items/2.jpg')
                                         figcaption.media-body
                                           h6.title.text-truncate Product name  
                                     td.text-center
@@ -334,7 +334,7 @@ block content
                                     td
                                       figure.media
                                         .img-wrap
-                                          img.img-thumbnail.img-xs(src='images/items/3.jpg')
+                                          img.img-thumbnail.img-xs(src='/images/items/3.jpg')
                                         figcaption.media-body
                                           h6.title.text-truncate Product name  
                                     td.text-center
@@ -378,19 +378,18 @@ block content
                           // box.//
                           // container //
                           // ========================= SECTION CONTENT END// =========================
-                          script(src='js/jquery-2.0.0.min.js', type='text/javascript')
-                          script(src='js/bootstrap.bundle.min.js', type='text/javascript')
-                          script(src='js/OverlayScrollbars.js', type='text/javascript')
+                          script(src='/js/jquery-2.0.0.min.js', type='text/javascript')
+                          script(src='/js/bootstrap.bundle.min.js', type='text/javascript')
+                          script(src='/js/OverlayScrollbars.js', type='text/javascript')
                           script.
                             $(function() {
                             //The passed argument has to be at least a empty object or a object with your desired options
                             //$("body").overlayScrollbars({ });
-                            $("#items").height(552);
-                            $("#items").overlayScrollbars({overflowBehavior : {
-                            x : "hidden",
-                            y : "scroll"
-                            } });
-                            $("#cart").height(445);
-                            $("#cart").overlayScrollbars({ });
+                              $("#items").height(552);
+                              $("#items").overlayScrollbars({overflowBehavior : {
+                                x : "hidden",
+                                y : "scroll"
+                              } });
+                              $("#cart").height(445);
+                              $("#cart").overlayScrollbars({ });
                             });
-
