@@ -68,7 +68,7 @@
 				<Key>
 					<PropertyRef Name="Category"/>
 				</Key>
-				<Property Name="Category" Type="Edm.String" Nullable="false"
+				<Property Name="Category" Type="Edm.Int32" Nullable="false"
 					MaxLength="40" sap:creatable="false" sap:updatable="false"
 					sap:sortable="false" sap:filterable="false"/>
 				<Property Name="CategoryName" Type="Edm.String" Nullable="false"
