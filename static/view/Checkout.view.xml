@@ -61,7 +61,7 @@
 												path : 'cartProducts>Price',
 												formatter : '.formatter.price'
 											}"
-											numberUnit="EUR"
+											numberUnit="R$"
 											press=".onEntryListPress"
 											iconDensityAware="false">
 											<firstStatus>
@@ -109,15 +109,15 @@
 										<items>
 											<SegmentedButtonItem
 												id="payViaCC"
-												key="Credit Card"
+												key="Cartão de Crédito"
 												text="{i18n>checkoutPaymentCreditCard}"/>
 											<SegmentedButtonItem
 												id="payViaBank"
-												key="Bank Transfer"
+												key="Transferência Bancária"
 												text="{i18n>checkoutPaymentBankTransfer}"/>
 											<SegmentedButtonItem
 												id="payViaCOD"
-												key="Cash on Delivery"
+												key="Pagamento na entrega"
 												text="{i18n>checkoutPaymentCod}"/>
 										</items>
 									</SegmentedButton>
@@ -729,7 +729,7 @@
 											path : 'cartProducts>Price',
 											formatter : '.formatter.price'
 										}"
-										numberUnit="EUR"
+										numberUnit="R$"
 										press=".onEntryListPress"
 										iconDensityAware="false">
 										<firstStatus>
