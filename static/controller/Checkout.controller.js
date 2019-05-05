@@ -33,8 +33,8 @@ sap.ui.define([
 		onInit: function () {
 			var oModel = new JSONModel(
 				{
-					SelectedPayment: "Credit Card",
-					SelectedDeliveryMethod: "Standard Delivery",
+					SelectedPayment: "Cartão de Crédito",
+					SelectedDeliveryMethod: "Entrega Padrão",
 					DifferentDeliveryAddress: false,
 					CashOnDelivery: {
 						FirstName: "",
@@ -90,8 +90,8 @@ sap.ui.define([
 			var oButton = oEvent.getSource();
 
 			var oLink = new Link({
-				text: "Show more information",
-				href: "http://sap.com",
+				text: "Mais informações",
+				href: "http://www.versattily.com.br",
 				target: "_blank"
 			});
 
@@ -133,13 +133,13 @@ sap.ui.define([
 			var selectedKey = this.getModel().getProperty("/SelectedPayment");
 			var oElement = this.byId("paymentTypeStep");
 			switch (selectedKey) {
-				case "Bank Transfer":
+				case "Transferência":
 					oElement.setNextStep(this.byId("bankAccountStep"));
 					break;
-				case "Cash on Delivery":
+				case "Pagamento na Entrega":
 					oElement.setNextStep(this.byId("cashOnDeliveryStep"));
 					break;
-				case "Credit Card":
+				case "Cartão de Crédito":
 				default:
 					oElement.setNextStep(this.byId("creditCardStep"));
 					break;
@@ -375,8 +375,8 @@ sap.ui.define([
 						this._navToWizardStep(this.byId("contentsStep"));
 						oWizard.discardProgress(oWizard.getSteps()[0]);
 						var oModelData = oModel.getData();
-						oModelData.SelectedPayment = "Credit Card";
-						oModelData.SelectedDeliveryMethod = "Standard Delivery";
+						oModelData.SelectedPayment = "Cartão de Crédito";
+						oModelData.SelectedDeliveryMethod = "Entrega padrão";
 						oModelData.DifferentDeliveryAddress = false;
 						oModelData.CashOnDelivery = {};
 						oModelData.InvoiceAddress = {};
