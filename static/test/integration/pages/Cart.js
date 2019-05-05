@@ -233,10 +233,10 @@ sap.ui.define([
 						success : function (oList) {
 							Opa5.assert.ok(
 								oList,
-								"The cart was found"
+								"Carrinho não encontrado"
 							);
 						},
-						errorMessage : "The cart was not found"
+						errorMessage : "O carrinho não foi encontrado"
 					});
 				},
 
@@ -244,7 +244,7 @@ sap.ui.define([
 					return this.waitFor({
 						id : "saveForLaterList",
 						success : function (oList) {
-							Opa5.assert.strictEqual(oList.getItems().length, 1, "Product saved for later");
+							Opa5.assert.strictEqual(oList.getItems().length, 1, "Produto a ser salvo");
 						}
 					});
 				},
@@ -254,9 +254,9 @@ sap.ui.define([
 						id : "saveForLaterList",
 						matchers: new AggregationEmpty({ name : "items" }),
 						success : function (oList) {
-							Opa5.assert.ok(true, "The savelist was empty");
+							Opa5.assert.ok(true, "A lista está vazia");
 						},
-						errorMessage : "The savelist still has entries"
+						errorMessage : "A lista ainda não tem itens"
 					});
 				},
 
@@ -264,7 +264,7 @@ sap.ui.define([
 					return this.waitFor({
 						id : "saveForLaterList",
 						success : function (oList) {
-							Opa5.assert.strictEqual(oList.getItems().length, 1, "Product saved for later");
+							Opa5.assert.strictEqual(oList.getItems().length, 1, "Produto a ser salvo");
 						}
 					});
 				},
@@ -272,22 +272,22 @@ sap.ui.define([
 				iShouldSeeTheTotalPriceEqualToZero : function () {
 					return this.waitFor({
 						id: "totalPriceText",
-						matchers: new PropertyStrictEquals({name: "text", value: "Total: 0,00 EUR"}),
+						matchers: new PropertyStrictEquals({name: "text", value: "Total:R$ 0,00"}),
 						success: function () {
-							Opa5.assert.ok(true, "Total price is updated correctly");
+							Opa5.assert.ok(true, "O preço total foi atualizado corretamento");
 						},
-						errorMessage: "Total price is not updated correctly"
+						errorMessage: "Preço Total não foi atualizado corretamente."
 					});
 				},
 
 				iShouldSeeTheTotalPriceUpdated: function () {
 					return this.waitFor({
 						id: "totalPriceText",
-						matchers: new PropertyStrictEquals({name: "text", value: "Total: 250,00 EUR"}),
+						matchers: new PropertyStrictEquals({name: "text", value: "Total:R$ 250,00"}),
 						success: function () {
-							Opa5.assert.ok(true, "Total price is updated correctly");
+							Opa5.assert.ok(true, "O preço total foi atualizado corretamento");
 						},
-						errorMessage: "Total price is not updated correctly"
+						errorMessage: "Preço Total não foi atualizado corretamente."
 					});
 				}
 			}
