@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<control xmlns="http://www.sap.com/sap.ui.library.xsd">
+    <name>GridContainer</name>
+    <derived/>
+    <author>SAP SE</author>
+    <documentation>A layout container control used for aligning items with various sizes in a simple grid.
+
+&lt;h3&gt;Overview&lt;/h3&gt;
+
+The control is used to align tiles, cards and other controls in configuration, such as a home page or a dashboard.
+It represents a grid layout with specific row and column sizes, in which the items can take any number of rows and columns.
+
+The number of columns and rows each item takes can be configured with the use of the &lt;code&gt;{@link sap.f.GridContainerItemLayoutData}&lt;/code&gt;.
+
+All rows have the same height and all columns have the same width. Their sizes can be configured with the use of the &lt;code&gt;layout&lt;/code&gt; aggregation and &lt;code&gt;{@link sap.f.GridContainerSettings}&lt;/code&gt;.
+
+&lt;h3&gt;Usage&lt;/h3&gt;
+
+&lt;i&gt;When to use&lt;/i&gt;
+&lt;ul&gt;
+&lt;li&gt;For aligning home page and dashboard items like Tiles and Cards in a simple grid system with equally sized rows and columns.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;i&gt;When not to use&lt;/i&gt;
+&lt;ul&gt;
+&lt;li&gt;If a more complex layout grid system, where columns and rows may vary in size, is needed.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3&gt;Example:&lt;/h3&gt;
+&lt;pre&gt;
+&amp;lt;f:GridContainer&amp;gt;
+	&amp;lt;f:layout&amp;gt;
+		&amp;lt;f:GridContainerSettings rowSize=&amp;quot;5rem&amp;quot; columnSize=&amp;quot;5rem&amp;quot; gap=&amp;quot;1rem&amp;quot; /&amp;gt;
+	&amp;lt;/f:layout&amp;gt;
+	&amp;lt;f:layoutS&amp;gt;
+		&amp;lt;f:GridContainerSettings rowSize=&amp;quot;4rem&amp;quot; columnSize=&amp;quot;4rem&amp;quot; gap=&amp;quot;0.5rem&amp;quot; /&amp;gt;
+	&amp;lt;/f:layoutS&amp;gt;
+	&amp;lt;f:items&amp;gt;
+		&amp;lt;GenericTile header=&amp;quot;Sales Fulfillment&amp;quot;&amp;gt;
+			&amp;lt;layoutData&amp;gt;
+				&amp;lt;f:GridContainerItemLayoutData rows=&amp;quot;2&amp;quot; columns=&amp;quot;2&amp;quot; /&amp;gt;
+			&amp;lt;/layoutData&amp;gt;
+		&amp;lt;/GenericTile&amp;gt;
+		&amp;lt;w:Card manifest=&amp;quot;url-to-manifest&amp;quot;&amp;gt;
+			&amp;lt;w:layoutData&amp;gt;
+				&amp;lt;f:GridContainerItemLayoutData rows=&amp;quot;6&amp;quot; columns=&amp;quot;3&amp;quot; /&amp;gt;
+			&amp;lt;/w:layoutData&amp;gt;
+		&amp;lt;/w:Card&amp;gt;
+		&amp;lt;Panel&amp;gt;
+			&amp;lt;layoutData&amp;gt;
+				&amp;lt;f:GridContainerItemLayoutData columns=&amp;quot;4&amp;quot; /&amp;gt;
+			&amp;lt;/layoutData&amp;gt;
+			&amp;lt;Text text=&amp;quot;Sales information&amp;quot; /&amp;gt;
+		&amp;lt;/Panel&amp;gt;
+	&amp;lt;/f:items&amp;gt;
+&amp;lt;/f:GridContainer&amp;gt;
+&lt;/pre&gt;</documentation>
+    <since>1.65</since>
+    <developmentState state="experimental" since="1.65">This class is experimental. The API may change.</developmentState>
+    <baseType>sap.ui.core/Control</baseType>
+    <properties>
+        <property name="width" type="sap.ui.core/CSSSize" defaultValue="" group="Appearance">
+            <documentation>Defines the width of the control</documentation>
+        </property>
+        <property name="height" type="sap.ui.core/CSSSize" defaultValue="" group="Appearance">
+            <documentation>Defines the height of the control</documentation>
+        </property>
+        <property name="snapToRow" type="sap.ui.core/boolean" defaultValue="false" group="Appearance">
+            <documentation>Should the items stretch to fill the rows which they occupy, or not.
+If set to true the items will stretch.</documentation>
+        </property>
+    </properties>
+    <aggregations default="items">
+        <aggregation name="items" type="sap.ui.core/Control" cardinality="0..n">
+            <documentation>The items contained by the control.</documentation>
+        </aggregation>
+        <aggregation name="layout" type="sap.f/GridContainerSettings" cardinality="0..1">
+            <documentation>The sap.f.GridContainerSettings applied if no settings are provided for a specific size
+If no layout is given, a default layout will be used. See the default values for &lt;code&gt;sap.f.GridContainerSettings&lt;/code&gt;.</documentation>
+        </aggregation>
+        <aggregation name="layoutS" type="sap.f/GridContainerSettings" cardinality="0..1">
+            <documentation>The sap.f.GridContainerSettings applied for size "S"</documentation>
+        </aggregation>
+        <aggregation name="layoutM" type="sap.f/GridContainerSettings" cardinality="0..1">
+            <documentation>The sap.f.GridContainerSettings applied for size "M"</documentation>
+        </aggregation>
+        <aggregation name="layoutL" type="sap.f/GridContainerSettings" cardinality="0..1">
+            <documentation>The sap.f.GridContainerSettings applied for size "L"</documentation>
+        </aggregation>
+        <aggregation name="layoutXL" type="sap.f/GridContainerSettings" cardinality="0..1">
+            <documentation>The sap.f.GridContainerSettings applied for size "XL"</documentation>
+        </aggregation>
+        <aggregation name="_defaultLayout" type="sap.f/GridContainerSettings" cardinality="0..1" visibility="hidden">
+            <documentation>Default sap.f.GridContainerSettings</documentation>
+        </aggregation>
+    </aggregations>
+</control>

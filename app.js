@@ -18,7 +18,7 @@ app.use(cookieParser());
 // app.use('/users', usersRouter);
 
 app.use('/', express.static('static'));
-app.use('/resources', express.static('node_modules/openui5.runtime.downloader/lib/resources'));
+app.use('/resources', express.static('resources'));
 app.use('/test-resources', express.static('test-resources'));
 
 module.exports = app;

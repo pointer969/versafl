@@ -1,0 +1,188 @@
+/*!
+ * OpenUI5
+ * (c) Copyright 2009-2019 SAP SE or an SAP affiliate company.
+ * Licensed under the Apache License, Version 2.0 - see LICENSE.txt.
+ */
+// Provides a customized router class for the 'documentation' app.
+sap.ui.define([
+	'sap/m/routing/Router',
+	'sap/ui/core/routing/History',
+	'sap/ui/thirdparty/hasher',
+	"sap/ui/documentation/sdk/controller/util/ControlsInfo"
+], function(Router, History, Hasher, ControlsInfo) {
+	"use strict";
+
+	// We need to set the global hasher instance to not encode URL's. This is specific for the SDK
+	// and it enables the application to handle module URL's which need to be encoded.
+	Hasher.raw = true;
+
+	return Router.extend("sap.ui.documentation.sdk.util.DocumentationRouter", {
+
+		constructor : function() {
+			Router.prototype.constructor.apply(this, arguments);
+
+			this.getRoute("entitySamplesLegacyRoute").attachPatternMatched(this._onEntityOldRouteMatched, this);
+			this.getRoute("entityAboutLegacyRoute").attachPatternMatched(this._onEntityOldRouteMatched, this);
+			this.getRoute("entityPropertiesLegacyRoute").attachPatternMatched({entityType: "controlProperties"}, this._forwardToAPIRef, this);
+			this.getRoute("entityAggregationsLegacyRoute").attachPatternMatched({entityType: "aggregations"}, this._forwardToAPIRef, this);
+			this.getRoute("entityAssociationsLegacyRoute").attachPatternMatched({entityType: "associations"}, this._forwardToAPIRef, this);
+			this.getRoute("entityEventsLegacyRoute").attachPatternMatched({entityType: "events"}, this._forwardToAPIRef, this);
+			this.getRoute("entityMethodsLegacyRoute").attachPatternMatched({entityType: "methods"}, this._forwardToAPIRef, this);
+
+			this.getRoute("topicIdLegacyRoute").attachPatternMatched(this._onOldTopicRouteMatched, this);
+			this.getRoute("apiIdLegacyRoute").attachPatternMatched(this._onOldApiRouteMatched, this);
+
+			this.getRoute("sampleLegacyRoute").attachPatternMatched({routeName: "sample"}, this._onOldSampleRouteMatched, this);
+			this.getRoute("codeLegacyRoute").attachPatternMatched({routeName: "code"}, this._onOldSampleRouteMatched, this);
+			this.getRoute("codeFileLegacyRoute").attachPatternMatched({routeName: "codeFile"}, this._onOldSampleRouteMatched, this);
+
+			this.getRoute("ReleaseNotesLegacyRoute").attachPatternMatched(function () {
+				this.navTo("releaseNotes");
+			}, this);
+		},
+
+		_onEntityOldRouteMatched: function(oEvent) {
+			this.navTo("entity", {
+				id: oEvent.getParameter("arguments").id
+			});
+		},
+
+		_forwardToAPIRef: function(oEvent, oData) {
+			oData || (oData = {});
+			oData['id'] = oEvent.getParameter("arguments").id;
+			this.navTo("apiId", oData);
+		},
+
+		_onOldSampleRouteMatched: function (oEvent, oEventData) {
+			var oArguments = oEvent.getParameter("arguments"),
+				sSampleId = oArguments.id;
+
+			ControlsInfo.loadData().then(function (oData) {
+				var oSample = oData.samples[sSampleId],
+					oNavigationObject;
+
+				if (!oSample) {
+					this.myNavToWithoutHash("sap.ui.documentation.sdk.view.NotFound", "XML", false);
+				}
+
+				oNavigationObject = {
+					entityId: oSample.contexts ? Object.keys(oSample.contexts)[0] : oSample.entityId,
+					sampleId: sSampleId
+				};
+
+				if (oEventData.routeName === "codeFile") {
+					oNavigationObject['fileName'] = decodeURIComponent(oArguments.fileName);
+				}
+
+				// Nav to new route
+				this.navTo(oEventData.routeName, oNavigationObject);
+			}.bind(this));
+		},
+
+		/**
+		 * Handling old Demo Kit topic routes which should be navigated to new routes
+		 * @param {object} oEvent event object
+		 * @private
+		 */
+		_onOldTopicRouteMatched: function(oEvent) {
+			this.navTo("topicId", {id: oEvent.getParameter("arguments").id.replace(/.html$/, "")});
+		},
+
+		/**
+		 * Handling old Demo Kit API routes which should be navigated to new routes
+		 * @param {object} oEvent event object
+		 * @private
+		 */
+		_onOldApiRouteMatched: function(oEvent) {
+			var sEntityType,
+				sEntityId,
+				aSplit,
+				sId = oEvent.getParameter("arguments").id;
+
+			if (sId) {
+				aSplit = sId.split("#");
+				if (aSplit.length === 2) {
+					sId = aSplit[0];
+					sEntityType = aSplit[1];
+
+					aSplit = sEntityType.split(":");
+					if (aSplit.length === 2) {
+						sEntityType = aSplit[0];
+						sEntityId = aSplit[1];
+					}
+				}
+
+				sId = sId.replace(/.html$/, "");
+
+				if (sEntityType === 'event') { // legacy keyword is singular
+					sEntityType = "events";
+				}
+			}
+
+			this.navTo("apiId", {id: sId, entityType: sEntityType, entityId: sEntityId});
+		},
+
+		/**
+		 * mobile nav back handling
+		 */
+		myNavBack: function (sRoute, oData) {
+			var oHistory = History.getInstance();
+			var oPrevHash = oHistory.getPreviousHash();
+			if (oPrevHash !== undefined) {
+				window.history.go(-1);
+			} else {
+				var bReplace = true; // otherwise we go backwards with a forward history
+				this.navTo(sRoute, oData, bReplace);
+			}
+		},
+
+		/**
+		 * a nav to method that does not write hashes but load the views properly
+		 */
+		myNavToWithoutHash: function (viewName, viewType, master, data) {
+			var oComponent = this._getOwnerComponent(),
+				oRootView = oComponent.byId(oComponent.getManifestEntry("/sap.ui5/rootView").id);
+
+			oRootView.loaded().then(function (oRootView) {
+				var	oApp = oRootView.byId("splitApp"),
+					oView = this.getView(viewName, viewType);
+
+				oApp.addPage(oView, master);
+				oApp.toDetail(oView.getId(), "show", data);
+			}.bind(this));
+		},
+
+		/**
+		 * Getter for the owner component
+		 *
+		 * <b>Note:</b> In the router we have no getter to retrieve the owner component. This should be improved in the
+		 * future.
+		 * @returns {sap.ui.core.UIComponent} Owner component of the router instance
+		 * @private
+		 */
+		_getOwnerComponent: function () {
+			return this._oOwner; // Accessing owner component from reference on the instance object.
+		},
+
+		/**
+		 * Destroys the current sample component
+		 * @private
+		 */
+		_destroySampleComponent: function () {
+			var oComponent = this._getOwnerComponent()._oCurrentOpenedSample;
+			if (oComponent) {
+				oComponent.destroy();
+				oComponent = null;
+			}
+		},
+
+		/**
+		 * @override
+		 */
+		navTo: function () {
+			this._destroySampleComponent(); // BCP: 1880458601
+			Router.prototype.navTo.apply(this, arguments);
+		}
+	});
+
+});

@@ -9,7 +9,6 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
-    "morgan": "~1.9.1",
-    "openui5.runtime.downloader": "^2.0.8"
+    "morgan": "~1.9.1"
   }
 }
