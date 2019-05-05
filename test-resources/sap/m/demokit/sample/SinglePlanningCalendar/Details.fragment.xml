@@ -1,0 +1,61 @@
+<core:FragmentDefinition
+		xmlns="sap.m"
+		xmlns:f="sap.ui.layout.form"
+		xmlns:core="sap.ui.core">
+	<ResponsivePopover
+			title="Edit appointment"
+			class="sapUiPopupWithPadding"
+			placement="Auto">
+		<beginButton>
+			<Button id="OKButton" enabled="false" text="OK" press="handleOkButton"/>
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="handleCancelButton"/>
+		</endButton>
+		<content>
+			<f:SimpleForm id="appointmentEditForm"
+						  editable="true"
+						  layout="ResponsiveGridLayout"
+						  singleContainerFullSize="false">
+				<f:content>
+					<Label text="Title" labelFor="appTitle"/>
+					<Input id="appTitle"/>
+					<Label text="More information" labelFor="moreInfo"/>
+					<Input id="moreInfo"/>
+					<Label text="Type" labelFor="appType"/>
+					<Select
+						id="appType"
+						selectedKey="{/types>type}"
+						items="{
+							path: '/types'
+						}">
+						<core:Item key="{type}" text="{type}" />
+					</Select>
+					<Label text="Start date" labelFor="startDate"/>
+					<DateTimePicker
+							id="startDate"
+							change="handleDetailsDateChange"
+							dateValue="{/StartDate}"
+							visible="{= !${allDay>/allDay}}"/>
+					<DatePicker
+							id="dpStartDate"
+							change="handleDetailsDatePickerChange"
+							dateValue="{/StartDate}"
+							visible="{= ${allDay>/allDay}}"/>
+					<Label text="End date" labelFor="endDate"/>
+					<DateTimePicker
+							id="endDate"
+							change="handleDetailsDateChange"
+							dateValue="{/EndDate}"
+							visible="{= !${allDay>/allDay}}"/>
+					<DatePicker
+							id="dpEndDate"
+							change="handleDetailsDatePickerChange"
+							dateValue="{/EndDate}"
+							visible="{= ${allDay>/allDay}}"/>
+					<CheckBox id="allDay" text="All-day" selected="{allDay>/allDay}" select="handleCheckBoxSelectDetails"/>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

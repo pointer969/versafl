@@ -1,0 +1,217 @@
+{
+	"explored": {
+	  "entitiesDefaults": {
+		"appComponent": "CA-UI5-CTR",
+		"formFactors": "ML"
+	  },
+	  "samplesRef": [
+		{
+		  "namespace": "sap.f.sample",
+		  "ref": "test-resources/sap/f/demokit/sample"
+		},
+		{
+		  "namespace": "sap.f.tutorial",
+		  "ref": "test-resources/sap/f/demokit/tutorial"
+		}
+	  ],
+	  "entities": [
+		{
+		  "id": "sap.f.Avatar",
+		  "name": "Avatar",
+		  "category": "Display",
+		  "since": "1.46",
+		  "samples": ["sap.f.sample.Avatar"]
+		},
+		{
+		  "id": "sap.f.DynamicPage",
+		  "name": "Dynamic Page",
+		  "category": "Container",
+		  "since": "1.42",
+		  "samples": [
+			"sap.f.sample.DynamicPageFreeStyle",
+			"sap.f.sample.DynamicPageAnalyticalTable",
+			"sap.f.sample.DynamicPageWithStickySubheader"
+		  ]
+		},
+		{
+		  "id": "sap.f.FlexibleColumnLayout",
+		  "name": "Flexible Column Layout",
+		  "category": "Container",
+		  "since": "1.46",
+		  "samples": [
+			"sap.f.sample.FlexibleColumnLayoutWithOneColumnStart",
+			"sap.f.sample.FlexibleColumnLayoutWithTwoColumnStart",
+			"sap.f.sample.FlexibleColumnLayoutWithFullscreenPage",
+			"sap.f.sample.FlexibleColumnLayoutSimple"
+		  ]
+		},
+		{
+		  "id": "sap.f.semantic.SemanticPage",
+		  "name": "Semantic Page (sap.f)",
+		  "category": "Container",
+		  "since": "1.46",
+		  "samples": ["sap.f.sample.SemanticPage", "sap.f.sample.SemanticPageFreeStyle"]
+		},
+		{
+		  "id": "sap.f.tutorial.fiori2",
+		  "name": "SAP Fiori 2.0 App",
+		  "category": "Tutorial",
+		  "since": "1.56",
+		  "formFactors": "-",
+		  "description": "In this tutorial, we showcase how to structure your UI5 app using the layout patterns that comply with the latest SAP Fiori guidelines.",
+		  "docuLink": "#docs/guide/c4de2df385174e58a689d9847c7553bd.html",
+		  "samplesAsSteps": [
+			"Setting Up the Initial App",
+			"Creating an Empty Flexible Column Layout",
+			"Using Dynamic Page for the Master View",
+			"Adding a Detail Page",
+			"Using Object Page Layout as a Detail Page",
+			"Adding a Floating Footer",
+			"Routing",
+			"Enhancing the Detail Page",
+			"Adding a Detail-Detail Page",
+			"Adding More Pages",
+			"Using the Flexible Column Layout Semantic Helper",
+			"Starting with Two Columns",
+			"Setting the Master-Detail Pattern"
+		  ]
+		},
+		{
+		  "id": "sap.f.GridList",
+		  "name": "Grid List",
+		  "category": "List",
+		  "since": "1.60",
+		  "samples": [
+			"sap.f.sample.GridListBasic",
+			"sap.f.sample.GridListBreakPoints",
+			"sap.f.sample.GridListBoxContainer",
+			"sap.f.sample.GridListBoxContainerGrouping",
+			"sap.f.sample.GridListBoxContainerReal"
+		  ]
+		},
+		{
+		  "id": "sap.f.ShellBar",
+		  "name": "ShellBar",
+		  "category": "Display",
+		  "since": "1.63",
+			"samples": [
+				"sap.f.sample.ShellBar"
+			]
+		},
+		{
+		  "id": "sap.f.Card",
+		  "name": "Card (sap.f)",
+		  "category": "Display",
+		  "since": "1.64",
+		  "samples": ["sap.f.sample.Card"]
+		},
+		{
+		  "id": "sap.f.GridContainer",
+		  "name": "Grid Container (Experimental)",
+		  "category": "Container",
+			"formFactors" : "-",
+		  "since": "1.65",
+		  "samples": [
+				"sap.f.sample.GridContainer"
+			]
+		}
+	  ],
+	  "samples": [
+		{
+		  "id": "sap.f.sample.DynamicPageFreeStyle",
+		  "name": "Dynamic Page Freestyle Example",
+		  "description": "Dynamic Page freestyle example with a responsive <code>sap.m.Table</code> in the content area, showing that each control can be placed in the title and the header content areas."
+		},
+		{
+		  "id": "sap.f.sample.DynamicPageAnalyticalTable",
+		  "name": "Dynamic Page with Analytical Table",
+		  "description": "Dynamic Page containing an Analytical Table in the content area and filters in the header aligned with the SAP Fiori 2 List Report floorplan."
+		},
+		{
+		  "id": "sap.f.sample.DynamicPageWithStickySubheader",
+		  "name": "Dynamic Page with Sticky Subheader",
+		  "description": "Dynamic Page containing an sap.m.IconTabBar in the sticky subheader content area."
+		},
+		{
+		  "id": "sap.f.sample.FlexibleColumnLayoutWithOneColumnStart",
+		  "name": "Flexible Column Layout with Routing and One Initial Column",
+		  "description": "Flexible Column Layout as an app with routing that starts with a single initial column."
+		},
+		{
+		 "id": "sap.f.sample.FlexibleColumnLayoutWithFullscreenPage",
+		  "name": "Flexible Column Layout with Routing and first page in fullscreen only",
+		  "description": "Flexible Column Layout as an app with routing that displays different pages in the initial column. The first page is only displayed in OneColumn layout type"
+		},
+		{
+		  "id": "sap.f.sample.FlexibleColumnLayoutWithTwoColumnStart",
+		  "name": "Flexible Column Layout with Routing and Two Initial Columns",
+		  "description": "Flexible Column Layout as an app with routing that starts with two initial columns."
+		},
+		{
+		  "id": "sap.f.sample.FlexibleColumnLayoutSimple",
+		  "name": "Flexible Column Layout (with Event Bus)",
+		  "description": "Clicking on a link in a column opens the next column."
+		},
+		{
+		  "id": "sap.f.sample.Avatar",
+		  "name": "Avatar",
+		  "description": "This sample demonstrates different combinations of types, shapes, and sizes of the Avatar."
+		},
+		{
+		  "id": "sap.f.sample.SemanticPage",
+		  "name": "Semantic Page using Draft Indicator",
+		  "description": "This sample demonstrates the use of a <code>DraftIndicator</code> in the footer area."
+		},
+		{
+		  "id": "sap.f.sample.SemanticPageFreeStyle",
+		  "name": "Semantic Page - Freestyle Sample",
+		  "description": "This sample demonstrates a <code>SemanticPage</code> with all semantic-specific actions both in the title and in the footer areas."
+		 },
+		{
+		  "id": "sap.f.sample.GridListBasic",
+		  "name": "Grid List - Basic examples",
+		  "description": ""
+		},
+		{
+		  "id": "sap.f.sample.GridListBreakPoints",
+		  "name": "Grid List - Break point examples - S, M, L, XL",
+		  "description": "This sample illustrates how to configure the responsive settings for different container sizes."
+		},
+		{
+		  "id": "sap.f.sample.GridListBoxContainer",
+		  "name": "Grid List with GridBoxLayout",
+		  "description": "This layout allows to display same height grid items with configurable width."
+		},
+		{
+		  "id": "sap.f.sample.GridListBoxContainerGrouping",
+		  "name": "Grid List features - Grouping, Header, Growing",
+		  "description": "This sample illustrates subgroups with headers, custom header and lazy loading of GridList items."
+		},
+		{
+		  "id": "sap.f.sample.GridListBoxContainerReal",
+		  "name": "Grid List - Recommended Item Designs",
+		  "description": "This is a sample for GridList item templates representing a typical tools page dashboard style."
+		},
+		{
+		  "id": "sap.f.sample.ShellBar",
+		  "name": "ShellBar",
+		  "description": "Shellbar control with title mega menu."
+		},
+		{
+		  "id": "sap.f.sample.ShellBarIconMenu",
+		  "name": "ShellBar",
+		  "description": "Shellbar control with navigation button."
+		},
+		{
+		  "id": "sap.f.sample.Card",
+		  "name": "Card Control",
+		  "description": "This sample illustrates how to specify the predefined header and the content of the Card control."
+		},
+		{
+		  "id": "sap.f.sample.GridContainer",
+		  "name": "Grid Container (Experimental)",
+		  "description": "This sample represents the general usage of GridContainer."
+		}
+	  ]
+	}
+}
