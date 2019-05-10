@@ -59,7 +59,7 @@ sap.ui.define([
 			var oBinding = oProductList.getBinding("items");
 			if (oBinding) {
 				if (bShowSearchResults) {
-					var oFilter = new Filter("ProductId", FilterOperator.Contains, oSearchField.getValue());
+					var oFilter = new Filter("Name", FilterOperator.Contains, oSearchField.getValue());
 					oBinding.filter([oFilter]);
 				} else { 
 					oBinding.filter([]);
